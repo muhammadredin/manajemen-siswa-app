@@ -1,0 +1,23 @@
+{
+  "name": "manajemen-siswa-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fe": "npx tailwindcss -i ./public/css/input.css -o ./public/css/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammadredin/manajemen-siswa-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhammadredin/manajemen-siswa-app/issues"
+  },
+  "homepage": "https://github.com/muhammadredin/manajemen-siswa-app#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}
