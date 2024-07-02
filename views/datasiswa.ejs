@@ -32,36 +32,18 @@
 				</tr>
 			</thead>
 			<tbody class="divide-y divide-gray-300">
+				<% siswa.forEach(siswa => { %>
 				<tr>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
+					<td class="px-4 py-2 whitespace-nowrap"><%= siswa.nama %></td>
+					<td class="px-4 py-2 whitespace-nowrap"><%= siswa.nisn %></td>
+					<td class="px-4 py-2 whitespace-nowrap"><%= siswa.tempatLahir %></td>
+					<td class="px-4 py-2 whitespace-nowrap"><%= siswa.jenisKelamin %></td>
+					<td class="px-4 py-2 whitespace-nowrap"><%= siswa.kelas %></td>
 					<td class="px-4 py-2 whitespace-nowrap">
-						<a href="" class="py-1 px-1 w-14 bg-blue-400 text-xs text-white rounded-md flex justify-center items-center">detail</a>
+						<a href="/datasiswa/<%= siswa.nisn %>" class="py-1 px-1 w-14 bg-blue-400 text-xs text-white rounded-md flex justify-center items-center">detail</a>
 					</td>
 				</tr>
-				<tr>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">
-						<a href="" class="py-1 px-1 w-14 bg-blue-400 text-xs text-white rounded-md flex justify-center items-center">detail</a>
-					</td>
-				</tr>
-				<tr>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">Lorem, ipsum.</td>
-					<td class="px-4 py-2 whitespace-nowrap">
-						<a href="" class="py-1 px-1 w-14 bg-blue-400 text-xs text-white rounded-md flex justify-center items-center">detail</a>
-					</td>
-				</tr>
+				<% }) %>
 			</tbody>
 		</table>
 	</div>

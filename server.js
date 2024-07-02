@@ -6,6 +6,8 @@ const path = require('path')
 const app = express()
 const port = 3000
 
+const { format } = require('date-fns');
+
 // FLash Msg
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
@@ -36,15 +38,27 @@ app.use(
 )
 app.use(flash())
 
-app.get('/datasiswa', (req, res) => {
+app.get('/datasiswa', async (req, res) => {
+    const siswa = await Siswa.find({})
     res.render('datasiswa', {
         layout: 'layouts/main-layout.ejs',
+        siswa
     })
 })
 
 app.get('/datasiswa/tambah', (req, res) => {
     res.render('tambahsiswa', {
         layout: 'layouts/main-layout.ejs',
+    })
+})
+
+app.get('/datasiswa/:nisn', async (req, res) => {
+    const siswa = await Siswa.findOne({nisn: req.params.nisn})
+
+    res.render('detailsiswa', {
+        layout: 'layouts/main-layout.ejs',
+        siswa,
+        formattedTL: format(new Date(siswa.tanggalLahir), 'dd MMMM yyyy')
     })
 })
 
@@ -57,7 +71,7 @@ app.post('/datasiswa/tambah', async (req, res) => {
             tempatLahir: req.body.tempatLahir,
             jenisKelamin: req.body.jenisKelamin,
             kelas: req.body.kelas,
-            noHP: req.body.noHP,
+            nohp: req.body.noHP,
             email: req.body.email,
         })
         await newData.save()

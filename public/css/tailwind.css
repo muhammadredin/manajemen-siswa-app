@@ -718,8 +718,28 @@ input[type="number"] {
   width: 5rem;
 }
 
+.w-1\/3 {
+  width: 33.333333%;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .min-w-full {
   min-width: 100%;
+}
+
+.min-w-24 {
+  min-width: 6rem;
+}
+
+.min-w-28 {
+  min-width: 7rem;
 }
 
 .origin-top {
@@ -770,10 +790,22 @@ input[type="number"] {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
+}
+
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+
+.divide-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: calc(2px * calc(1 - var(--tw-divide-y-reverse)));
+  border-bottom-width: calc(2px * var(--tw-divide-y-reverse));
 }
 
 .divide-gray-300 > :not([hidden]) ~ :not([hidden]) {
@@ -891,6 +923,14 @@ input[type="number"] {
 
 .pt-24 {
   padding-top: 6rem;
+}
+
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
 }
 
 .text-left {
