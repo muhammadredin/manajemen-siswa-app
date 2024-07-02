@@ -1,9 +1,12 @@
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
-const { body, validationResult, cookie} = require('express-validator')
+const { body, validationResult, cookie } = require('express-validator')
+const app = express()
+
 const bodyParser = require('body-parser')
 const path = require('path')
-const app = express()
+const methodOverride = require('method-override');
+
 const port = 3000
 
 const { format } = require('date-fns');
@@ -25,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(methodOverride('_method'));
 
 // Konfigurasi Flash
 app.use(cookieParser('secret'))
@@ -82,6 +87,16 @@ app.post('/datasiswa/tambah', async (req, res) => {
     }
 })
 
+app.delete('/datasiswa/:id', async (req, res) => {
+    try {
+        await Siswa.findByIdAndDelete(req.params.id);
+        res.redirect('/datasiswa')
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
+})
+
 app.listen(port, () => {
-	console.log(`Server is listening on port $`)
+	console.log(`Server is listening on https://127.0.0.1:3000`)
 })
